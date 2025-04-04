@@ -1,0 +1,1 @@
+g++ invoicegenerator.cpp -o invoicegenerator.exe -I ..\..\dl\include -I ..\..\..\tmcommon -I e:\sqlite3\include -L ..\..\dl\lib -L ..\..\..\tmcommon\lib -L e:\sqlite3\lib -l invoicedl -l tmcommon -l sqlite3
