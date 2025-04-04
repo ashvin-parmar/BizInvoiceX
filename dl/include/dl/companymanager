@@ -1,0 +1,52 @@
+#ifndef __$__companymanager__dl
+#define __$__companymanager__dl 213
+#include<iostream>
+#include<dl/icompany>
+#include<dl/company>
+#include<dl/daoexception>
+#include<dl/icompanymanager>
+#include<forward_list>
+using namespace std;
+namespace invoicegenerator
+{
+namespace data_layer
+{
+class CompanyManager:public abc::ICompanyManager
+{
+class Header
+{
+public:
+int lastGeneratedCode;
+int numberOfRecords;
+};
+class _Company
+{
+public:
+int code;
+char name[51];
+char street[101];
+char city[51];
+char state[51];
+char country[51];
+int pinCode;
+char contactNumber[15];
+char GSTNumber[16];
+char email[81];
+char UPIID[81];
+char password[101];
+};
+public:
+void addCompany(abc::ICompany *company) noexcept(false);
+void updateCompany(abc::ICompany *company) noexcept(false);
+void updateCompanyAddressByCode(abc::ICompany *company) noexcept(false);
+void removeCompany(string &email,string &password) noexcept(false);
+forward_list<abc::ICompany *> *getAllCompany() noexcept(false);
+abc::ICompany * getCompanyByEmail(string &email) noexcept(false);
+void resetPassword(string email,string previousPassword,string newPassWord) noexcept(false);
+int isCompanyWithEmailExist(const string &email) noexcept(false);
+void showProfile(const string &email) noexcept(false);
+int verification(const string email,const string password) noexcept(false);
+};
+}
+}
+#endif

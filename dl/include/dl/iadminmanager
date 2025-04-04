@@ -1,0 +1,20 @@
+#ifndef __$__iadminmanager__dl 
+#define __$__iadminmanager__dl 423
+#include<iostream>
+using namespace std;
+namespace invoicegenerator
+{
+namespace data_layer
+{
+namespace abc
+{
+class IAdminManager
+{
+public:
+static string ADMIN_FILE_NAME;
+virtual int verification(const string email,const string password) noexcept(false)=0;
+};
+}
+}
+}
+#endif

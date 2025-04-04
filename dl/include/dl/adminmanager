@@ -1,0 +1,18 @@
+#ifndef __$__adminmanager__dl
+#define __$__adminmanager__dl 4234
+#include<iostream>
+#include<dl/iadminmanager>
+#include<dl/daoexception>
+using namespace std;
+namespace invoicegenerator
+{
+namespace data_layer
+{
+class AdminManager:public abc::IAdminManager
+{
+public:
+int verification(const string email,const string password) noexcept(false);
+};
+}
+}
+#endif

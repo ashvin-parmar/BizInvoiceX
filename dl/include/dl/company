@@ -1,0 +1,63 @@
+#ifndef __$__company__dl 
+#define __$__company__dl 344
+#include<iostream>
+#include<dl/icompany>
+using namespace std;
+namespace invoicegenerator
+{
+namespace data_layer
+{
+class Company:public abc::ICompany
+{
+string name;
+string street;
+string city;
+string state;
+string country;
+int pinCode;
+string contactNumber;
+string GSTNumber;
+string email;
+string UPIID;
+string password;
+int code;
+public:
+Company();
+Company(const Company &other);
+Company(string email,string password);
+virtual ~Company();
+void setName(string Name);
+void setStreet(string street);
+void setCity(string city);
+void setState(string state);
+void setPinCode(int pinCode);
+void setContactNumber(string contactNumber);
+void setEmail(string email);
+void setGSTNumber(string gstNumber);
+void setPassword(string password);
+void setUPIID(string UPIID);
+void setCountry(string country);
+string getCountry() const;
+string getName() const;
+string getStreet() const;
+string getCity() const ;
+int getPinCode() const;
+string getState() const;
+string getEmail() const;
+string getContactNumber() const;
+string getGSTNumber() const;
+string getUPIID() const;
+string getPassword() const;
+void setCode(int code);
+int getCode() const;
+abc::ICompany & operator=(const abc::ICompany &other);
+int operator==(const abc::ICompany &other);
+int operator<=(const abc::ICompany &other);
+int operator>=(const abc::ICompany &other);
+int operator!=(const abc::ICompany &other);
+int operator<(const abc::ICompany &other);
+int operator>(const abc::ICompany &other);
+};
+}
+}
+#endif

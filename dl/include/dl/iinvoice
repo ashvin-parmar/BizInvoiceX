@@ -1,0 +1,69 @@
+#ifndef __$__iinvoice__dl 
+#define __$__iinvoice__dl 123
+#include<iostream>
+#include<forward_list>
+#include<time.h>
+#define ITEM_MAX_QUANTITY 50
+#define TAX_DEFAULT 0.05000
+#define DISCOUNT_DEFAULT 0.10000
+using namespace std;
+namespace invoicegenerator
+{
+namespace data_layer
+{
+namespace abc
+{
+class IItem
+{
+public:
+virtual void setItemName(string itemName)=0;
+virtual void setItemCode(int itemCode)=0;
+virtual void setQuantity(int quantity)=0;
+virtual void setNetRate(double netRate)=0;
+virtual string getItemName() const=0;
+virtual int getItemCode() const=0;
+virtual int getQuantity() const=0;
+virtual double getNetRate() const=0;
+virtual IItem& operator=(const IItem &other)=0;
+virtual int operator==(const IItem &other)=0;
+virtual int operator<=(const IItem &other)=0;
+virtual int operator>=(const IItem &other)=0;
+virtual int operator!=(const IItem &other)=0;
+virtual int operator<(const IItem &other)=0;
+virtual int operator>(const IItem &other)=0;
+};
+class IInvoice
+{
+public:
+virtual void setInvoiceCode(int invoiceCode)=0;
+virtual void setCompanyEmail(string companyEmail)=0;
+virtual void setCustomerEmail(string customerEmail)=0;
+virtual void setDate(time_t )=0;
+virtual void setNumberOfItems(int numberOfItems)=0;
+virtual void setItemList(forward_list<IItem *> &items)=0;
+virtual void setAmountPaid(double amountPaid)=0;
+virtual void setAmountDue(double amountDue)=0;
+virtual void setDiscount(double discount)=0;
+virtual void setTax(double tax)=0;
+virtual int getInvoiceCode() const=0;
+virtual string getCustomerEmail() const=0;
+virtual string getCompanyEmail() const=0;
+virtual time_t getDate() const=0;
+virtual int getNumberOfItems() const=0;
+virtual forward_list<IItem *> * getItemList() const=0;
+virtual double getAmountPaid() const=0;
+virtual double getAmountDue() const=0;
+virtual double getDiscount() const=0;
+virtual double getTax() const=0;
+virtual IInvoice& operator=(const IInvoice &other)=0;
+virtual int operator==(const IInvoice &other)=0;
+virtual int operator<=(const IInvoice &other)=0;
+virtual int operator>=(const IInvoice &other)=0;
+virtual int operator!=(const IInvoice &other)=0;
+virtual int operator<(const IInvoice &other)=0;
+virtual int operator>(const IInvoice &other)=0;
+};
+}
+}
+}
+#endif

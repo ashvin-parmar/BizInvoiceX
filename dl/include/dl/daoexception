@@ -1,0 +1,23 @@
+#ifndef __$__daoexception__
+#define __$__daoexception__ 4324
+#include<iostream>
+using namespace std;
+namespace invoicegenerator
+{
+namespace data_layer
+{
+class DAOException:public exception
+{
+private:
+string messege;
+public:
+DAOException();
+DAOException(const DAOException &other);
+DAOException(string messege);
+DAOException& operator=(const DAOException &other);
+const char * what() const throw();
+virtual ~DAOException() throw();
+};
+}
+}
+#endif

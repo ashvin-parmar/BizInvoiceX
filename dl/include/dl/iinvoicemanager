@@ -1,0 +1,35 @@
+#ifndef __$__iinvoicemanager__dl
+#define __$__iinvoicemanager__dl 123
+#include<iostream>
+#include<dl/iinvoice>
+#include<dl/invoice>
+#include<dl/daoexception>
+#include<forward_list>
+using namespace std;
+namespace invoicegenerator
+{
+namespace data_layer
+{
+namespace abc
+{
+class IInvoiceManager
+{
+public:
+static string INVOICE_FILE_NAME;
+virtual void addInvoice(abc::IInvoice *invoice) noexcept(false)=0;
+virtual void updateInvoiceByInvoiceCode(abc::IInvoice *invoice) noexcept(false)=0;
+virtual void removeInvoiceByInvoiceCode(int invoiceCode) noexcept(false)=0;
+virtual void removeInvoiceByCustomerEmail(string &companyEmail,string &customerEmail) noexcept(false)=0;
+virtual void removeInvoiceByCompanyEmail(string &companyEmail) noexcept(false)=0;
+virtual forward_list<abc::IInvoice *> *getAllInvoice() noexcept(false)=0;
+virtual forward_list<abc::IInvoice *> * getInvoiceByCustomerEmail(string &companyEmail,string &customerEmail) noexcept(false)=0;
+virtual forward_list<abc::IInvoice *> * getInvoiceByCompanyEmail(string &companyEmail) noexcept(false)=0;
+virtual abc::IInvoice * getInvoiceByInvoiceCode(int invoiceCode) noexcept(false)=0;
+virtual int isInvoiceWithCompanyEmailExist(const string &CompanyEmail) noexcept(false)=0;
+virtual int isInvoiceWithCustomerEmailExist(const string &companyEmail,const string &customerEmail) noexcept(false)=0;
+virtual int isInvoiceWithInvoiceCodeExist(const int invoiceCode) noexcept(false)=0;
+};
+}
+}
+}
+#endif

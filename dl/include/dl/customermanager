@@ -1,0 +1,48 @@
+#ifndef __$__customermanager__dl
+#define __$__customermanager__dl 213
+#include<iostream>
+#include<dl/icustomer>
+#include<dl/customer>
+#include<dl/daoexception>
+#include<dl/icustomermanager>
+#include<forward_list>
+using namespace std;
+namespace invoicegenerator
+{
+namespace data_layer
+{
+class CustomerManager:public abc::ICustomerManager
+{
+class Header
+{
+public:
+int lastGeneratedCustomerCode;
+int numberOfRecords;
+};
+class _Customer
+{
+public:
+int customerCode;
+char customerName[51];
+char contactNumber[15];
+char customerEmail[81];
+char companyEmail[81];
+char street[51];
+char city[51];
+char state[51];
+char country[51];
+int pinCode;
+};
+public:
+void addCustomer(abc::ICustomer *customer) noexcept(false);
+void updateCustomer(abc::ICustomer *customer) noexcept(false);
+void updateCustomerAddressByEmail(abc::ICustomer *customer) noexcept(false);
+void removeCustomer(string &companyEmail,string &customerEmail) noexcept(false);
+forward_list<abc::ICustomer *> *getAllCustomer() noexcept(false);
+abc::ICustomer * getCustomerByEmail(string &companyEmail,string &customerEmail) noexcept(false);
+int isCustomerWithEmailExist(const string &companyEmail,const string &customerEmail) noexcept(false);
+void showCustomerProfile(const string &companyEmail,const string &customerEmail) noexcept(false);
+};
+}
+}
+#endif
